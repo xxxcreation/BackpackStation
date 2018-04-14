@@ -1,52 +1,54 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="http://chat.vuejs.org/" target="_blank" rel="noopener">Vue Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="http://vuejs-templates.github.io/webpack/" target="_blank" rel="noopener">Docs for This Template</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
+  <div class="tomorrow">
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <th>Days</th>
+          <th>People</th>
+          <th>Keyword</th>
+        </tr>
+      </thead>
+    <tbody>
+        <tr v-for="row in items">
+          <td>{{row.Days}}</td>
+          <td>{{row.People}}</td>
+          <td>{{row.Keyword}}</td>
+        </tr>
+    </tbody>
+  </table>
+  </div>
+  </div>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'hello',
+const items = [{'Days': '2018/4/13', 'People': '2人', 'Keyword': '渋谷'},
+  {'Days': '2018/4/13', 'People': '3人', 'Keyword': '新宿'},
+  {'Days': '2018/4/13', 'People': '4人', 'Keyword': '東京'}]
+export default{
+  name: 'sample',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js PWA'
-    }
+      items: items}
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+<!-- <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "YOUR_KEY",
+    authDomain: "YOUR_DOMAIN.firebaseapp.com",
+    databaseURL: "YOUR_DOMAIN.firebaseio.com",
+    projectId: "YOUR_ID",
+    storageBucket: "YOUR_BUCKET_ID.appspot.com",
+    messagingSenderId: "YOUR_SENDER_ID"
+  }
+  firebase.initializeApp(config)
+</script>-->
+
 <style>
-h1, h2 {
-  font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #35495E;
-}
 </style>
+
