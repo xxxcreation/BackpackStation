@@ -28,14 +28,36 @@
 </template>
 
 <script>
-// createdする。firebaseから取ってきたデータをitemsの変数に代入する
-const items = [{'Days': '2018/4/13', 'People': '2人', 'Keyword': '渋谷'},
-  {'Days': '2018/4/13', 'People': '3人', 'Keyword': '新宿'},
-  {'Days': '2018/4/13', 'People': '4人', 'Keyword': '東京'}]
+const firebase = require('firebase')
+// Required for side-effects
+require('firebase/firestore')
+firebase.initializeApp({
+  apiKey: 'AIzaSyDBRbOWjgbLpIQJwrWwt1GWx9WPGpq0eB4',
+  authDomain: 'backpack-station.firebaseapp.com',
+  projectId: 'backpack-station'
+})
+// Initialize Cloud Firestore through Firebase
+var db = firebase.firestore()
+// db.collection('items').add({
+//   'Days': '2018/4/13', 'People': '2人', 'Keyword': '渋谷'
+// }).catch(function (error) {
+//   console.error('Error adding document: ', error)
+// })
+// db.collection('items').add({
+//   'Days': '2018/4/13', 'People': '3人', 'Keyword': '新宿'
+// }).catch(function (error) {
+//   console.error('Error adding document: ', error)
+// })
+// db.collection('items').add({
+//   'Days': '2018/4/13', 'People': '4人', 'Keyword': '東京'
+// }).catch(function (error) {
+//   console.error('Error adding document: ', error)
+// })
+
 export default{
   data () {
     return {
-      items: items,
+      items: [],
       searchKeyword: '' }
   },
   computed: {
@@ -51,5 +73,23 @@ export default{
       }
       return filteredList
     }
-  }}
+  },
+  created: function () {
+    this.readFromFirebase()
+  },
+  methods: {
+    readFromFirebase: function () {
+      let items = []
+      db.collection('items').get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          console.log(`${doc.id} => ${doc.data()}`)
+          items.push(doc.data())
+        })
+      }).then(() => {
+        console.log(JSON.stringify(items))
+        this.items = items
+      })
+    }
+  }
+}
 </script>
