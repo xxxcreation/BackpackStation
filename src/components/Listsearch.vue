@@ -32,27 +32,12 @@ const firebase = require('firebase')
 // Required for side-effects
 require('firebase/firestore')
 firebase.initializeApp({
-  apiKey: 'AIzaSyDBRbOWjgbLpIQJwrWwt1GWx9WPGpq0eB4',
-  authDomain: 'backpack-station.firebaseapp.com',
-  projectId: 'backpack-station'
+  apiKey: 'AIzaSyB2kHSE1ReNpKUSf_HWbngTlfbFrsNz1yg',
+  authDomain: 'back-pack-station.firebaseapp.com',
+  projectId: 'back-pack-station'
 })
 // Initialize Cloud Firestore through Firebase
 var db = firebase.firestore()
-// db.collection('items').add({
-//   'Days': '2018/4/13', 'People': '2人', 'Keyword': '渋谷'
-// }).catch(function (error) {
-//   console.error('Error adding document: ', error)
-// })
-// db.collection('items').add({
-//   'Days': '2018/4/13', 'People': '3人', 'Keyword': '新宿'
-// }).catch(function (error) {
-//   console.error('Error adding document: ', error)
-// })
-// db.collection('items').add({
-//   'Days': '2018/4/13', 'People': '4人', 'Keyword': '東京'
-// }).catch(function (error) {
-//   console.error('Error adding document: ', error)
-// })
 
 export default{
   data () {
