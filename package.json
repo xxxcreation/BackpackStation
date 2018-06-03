@@ -16,6 +16,7 @@
   "dependencies": {
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
+    "vuetify": "^1.0.18",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
@@ -50,7 +51,7 @@
     "express": "^4.16.2",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^1.1.5",
-    "firebase": "^4.12.0",
+    "firebase": "^4.13.1",
     "friendly-errors-webpack-plugin": "^1.6.1",
     "html-webpack-plugin": "^2.30.1",
     "http-proxy-middleware": "^0.17.4",
